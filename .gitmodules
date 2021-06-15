@@ -1,0 +1,6 @@
+[submodule "client"]
+	path = client
+	url = git@github.com:Orynik/Internet-Shop_diploma-thesis__frontend.git
+[submodule "api"]
+	path = api
+	url = git@github.com:Orynik/Internet-Shop_diploma-thesis__backend.git
