@@ -14,6 +14,15 @@ services:
     container_name: InternetShopDiploma-client
   db:
     image: mysql
+    command: --default-authentication-plugin=mysql_native_password
     ports:
-      - "3307:3306"
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "qwerty12345"
+      MYSQL_DATABASE: "Shop"
+    volumes:
+      - mysql_data:/var/lib/mysql
     container_name: InternetShopDiploma-db
+volumes:
+  mysql_data:
+    external: true
