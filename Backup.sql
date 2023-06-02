@@ -3,7 +3,6 @@
 -- Host: localhost    Database: Shop
 -- ------------------------------------------------------
 -- Server version	8.0.25
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -36,16 +35,6 @@ CREATE TABLE `carts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `carts`
---
-
-LOCK TABLES `carts` WRITE;
-/*!40000 ALTER TABLE `carts` DISABLE KEYS */;
-INSERT INTO `carts` VALUES (60,'Orynik','BAO7-450','BAO','Электромаш',45000.00,'1','1624162850176'),(62,'Orynik','BAO4-450LA-2','BAO','Электромаш',40000.00,'1','1624162957240');
-/*!40000 ALTER TABLE `carts` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `manufacturers`
 --
 
@@ -66,16 +55,6 @@ CREATE TABLE `manufacturers` (
   UNIQUE KEY `Manufacturer_Company` (`Company`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `manufacturers`
---
-
-LOCK TABLES `manufacturers` WRITE;
-/*!40000 ALTER TABLE `manufacturers` DISABLE KEYS */;
-INSERT INTO `manufacturers` VALUES (4,'Русэлпром','88003013532','mail@ruselprom.ru','119415','Россия','Москва','Москва','37'),(8,'Элма','89810003004','pawelog448@d4wan.com','663243','Россия','Ржев','Ржев','1'),(9,'Электромаш','88005553535','elektromash@gmail.com','3123123','Молдова','Тирасполь','Молдавская','32');
-/*!40000 ALTER TABLE `manufacturers` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `motors`
@@ -101,16 +80,6 @@ CREATE TABLE `motors` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `motors`
---
-
-LOCK TABLES `motors` WRITE;
-/*!40000 ALTER TABLE `motors` DISABLE KEYS */;
-INSERT INTO `motors` VALUES (5,'MTF-111-6','MTF',4,900,75.5,0.50,0,0,176),(6,'MTF-112-6','MTF',4,30,74.5,0.99,1,0,220),(7,'MTKF-111-6','MTКF',4,900,75.2,2.00,2,2,220),(8,'MTKF-112-6','MTКF',5,925,76.0,2.00,2,1,220),(9,'BAO7-450','BAO',200,3000,93.5,0.90,3,2,220),(10,'BAO4-450LA-2','BAO',200,3600,94.5,0.89,1,3,220);
-/*!40000 ALTER TABLE `motors` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `products`
 --
 
@@ -132,17 +101,6 @@ CREATE TABLE `products` (
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`Name`, `Serial`) REFERENCES `motors` (`Name`, `Serial`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `products`
---
-
-LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (21,'MTF-111-6','MTF','http://localhost:4444/img/MTF-111-6_MTF.jpg','Элма','',30000.00),(22,'MTF-112-6','MTF','http://localhost:4444/img/MTF-112-6_MTF.jpg','Элма','',25000.00),(24,'MTKF-111-6','MTКF','http://localhost:4444/img/MTKF-111-6_MTКF.jpg','Элма','',23000.00),(25,'BAO7-450','BAO','http://localhost:4444/img/BAO7-450_BAO.jpg','Электромаш','',45000.00),(26,'BAO4-450LA-2','BAO','http://localhost:4444/img/BAO4-450LA-2_BAO.jpg','Электромаш','',40000.00),(27,'MTKF-112-6','MTКF','http://localhost:4444/img/MTKF-112-6_MTКF.jpg','Электромаш','',32000.00);
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
-
 --
 -- Table structure for table `serials`
 --
@@ -159,16 +117,6 @@ CREATE TABLE `serials` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `serials`
---
-
-LOCK TABLES `serials` WRITE;
-/*!40000 ALTER TABLE `serials` DISABLE KEYS */;
-INSERT INTO `serials` VALUES (3,'BAO'),(1,'MTF'),(2,'MTКF');
-/*!40000 ALTER TABLE `serials` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sessions`
 --
 
@@ -182,16 +130,6 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sessions`
---
-
-LOCK TABLES `sessions` WRITE;
-/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('aef1dc1c-bedc-498b-8b9d-407d83a20575',1624249500,'{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2021-06-21T04:09:09.281Z\",\"secure\":false,\"httpOnly\":true,\"path\":\"/\",\"sameSite\":true},\"User\":\"Orynik\"}'),('dcd5be6f-7594-4739-9a56-bd539d44837d',1624254915,'{\"cookie\":{\"originalMaxAge\":86400000,\"expires\":\"2021-06-21T05:54:56.577Z\",\"secure\":false,\"httpOnly\":true,\"path\":\"/\",\"sameSite\":true},\"User\":\"Orynik\"}');
-/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -214,13 +152,8 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `users`
---
-
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'wqfqwfqf','wqfqwfqf','qwfqwfqwf','5235235235','fqwfqwfqwfq','User',NULL),(4,'fwqf','wqfqwfqf','qwfqwfqwf','5235235235','fqwfqwfqwfq','User',NULL),(6,'fwefw','wqfqwfqf','qwfqwfqwf','5235235235','fqwfqwfqwfq','User',NULL),(7,'Orynik','Krov','Dmit','6435423452','Q1qqqqqqq','Admin',NULL),(8,'Quimer','Krovel','Dmitry','5252352623623','3Kb788EuYnGr2ig','User',NULL),(9,'fefqfqw','fqwfqw','fqwfqw','5252352623623','3Kb788EuYnGr2ig','User',NULL),(10,'qrfqwfq','упцупц','пцупц','5252352623623','3Kb788EuYnGr2ig','User',NULL),(20,'','','','5252352623623','3Kb788EuYnGr2ig','User',NULL),(52,'qweeqwe','','','5252352623623','3Kb788EuYnGr2ig','User',NULL),(56,'fqwfqwfqfqwf','fqwfqwfqf','fqwfqwfqf','5252352623623','3Kb788EuYnGr2ig','User',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
